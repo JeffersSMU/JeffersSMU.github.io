@@ -1,1 +1,577 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeffers | Travel Journal</title>
+<meta name="description" content="Jeffers' Personal Website">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #efe5d0;
+    color: #2a221a;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: #b8442a;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    color: #2a221a;
+    margin-bottom: 15px;
+  }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #8f3220;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+  }
+
+  header {
+    background-color: #e6d8b9;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #d3bf94;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .brand {
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    color: #2a221a;
+  }
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
+  .brand small {
+    font-weight: 400;
+    color: #5b4d3d;
+  }
+
+  nav.links a {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #5b4d3d;
+    text-decoration: none;
+    font-weight: bold;    
+    transition: transform 0.3s ease;
+  }
+
+  nav.links a:hover {
+    color: #8f3220;
+    border-bottom: 1px solid #8f3220;
+    transform: translateY(-3px);
+  }
+
+  .divider {
+    color: #d3bf94;
+    margin: 0px 10px;
+    font-family: 'Space Mono', monospace;
+    cursor: default;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    min-height: 70vh;    
+  }
+
+  .hero-photo {
+    flex: 0.5;
+    background: #e6d8b9;
+    padding: 15px;
+    border: 1px solid #d3bf94;
+    box-shadow: 0px 0px 5px gray;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-photo:hover {
+    transform: translateY(-10px) scale(1.05) rotate(-5deg);
+    box-shadow: 5px 5px 5px gray;
+  }
+
+  .hero-text {
+    flex: 1.5;
+  }
+
+  .hero-text h1 {
+    font-size: 48px;
+    line-height: 1.1;
+  }
+
+  .hero-text h1 em {
+    color: #8f3220;
+    font-style: italic;
+  }
+
+  .hero-text p {
+    font-size: 18px;
+    color: #5b4d3d;
+    margin-bottom: 20px;
+  }
+
+  /* Biography Section */
+  .bio-card {
+    background-color: #f2e8d3;
+    border: 1px solid #d3bf94;
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    box-shadow: 0px 0px 5px gray;
+  }
+
+  .bio-text {
+    flex: 2;
+  }
+
+  .bio-stats {
+    flex: 1;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    border-left: 1px dashed #d3bf94;
+    padding-left: 20px;
+  }
+
+  .bio-stats strong {
+    color: #8f3220;
+    display: block;
+    margin-top: 15px;
+  }
+
+  /* Video Section */
+  .video-wrapper {
+    background: #000;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 5px gray;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+
+  /* Destinations Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .card {
+    background: #e6d8b9;
+    border: 1px solid #d3bf94;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px gray;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 0px 10px rgb(83, 83, 83);
+  }
+
+  .card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 20px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #5b4d3d;
+  }
+
+  .jp-grid {
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  .jp-grid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px gray;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .jp-grid img:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 0px 10px rgb(83, 83, 83);
+  }
+
+  /* WAD2 Assignments */
+  .wad2-list ul {
+    list-style: none;
+  }
+
+  .wad2-list li {
+    background: #e6d8b9;
+    border: 1px solid #d3bf94;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    transition: background 0.3s ease;
+  }
+
+  .wad2-list li:hover {
+    background: #d3bf94;
+  }
+
+  .wad2-list li a {
+    display: block;
+    color: #2a221a;
+    font-weight: bold;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #2a221a;
+    color: #efe5d0;
+    padding: 20px 20px;
+    text-align: center;
+  }
+
+  footer h3 {
+    color: #d3bf94;
+  }
+
+  footer div {
+    padding-bottom: 10px;
+  }
+
+  footer a {
+    color: #d3bf94;
+    margin: 0 10px;
+  }
+
+  #backToTop {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #b8442a;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
+  }
+
+  #backToTop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #backToTop:hover {
+    background-color: #8f3220;
+    transform: translateY(-5px);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .bio-card {
+      flex-direction: column;
+    }
+
+    .bio-stats {
+      border-left: none;
+      border-top: 1px dashed #d3bf94;
+      padding-left: 0;
+      padding-top: 20px;
+    }
+
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-toggle {
+      display: block;
+    }
+
+    nav.links {
+      display: none;
+      flex-direction: column;
+      background: #e6d8b9;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      border-bottom: 2px solid #d3bf94;
+    }
+
+    .divider {
+      display: none;
+    }
+
+    nav.links.open {
+      display: flex;
+    }
+
+    nav.links a {
+      margin: 10px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#top" class="brand">JEFFERS <small>／ TRAVEL JOURNAL</small></a>
+  <button class="nav-toggle" id="navToggle">☰</button>
+  <nav class="links" id="navLinks">
+    <a href="#bio">About Me</a>
+    <span class="divider">|</span>
+    <a href="#favourite">Favourite</a>
+    <span class="divider">|</span>
+    <a href="#destinations">Destinations</a>
+    <span class="divider">|</span>
+    <a href="#wad2">WAD2</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO SECTION -->
+  <section class="container hero">
+    <div class="hero-photo">
+      <img src="media/portrait.png" alt="Jeffers Portrait">
+      <p style="text-align: center; font-size: 12px; margin-top: 10px;">📍 KIYOMIZU-DERA, KYOTO</p>
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow">Who am I?</p>
+      <h1>Jeffers —<br><em>Out of Class,</em><br>Wandering around.</h1>
+      <p>The best stories usually come from unplanned detours and getting a little lost. This is an archive of my time spent off-campus chasing new horizons, and figuring things out as I go.</p>
+    </div>
+  </section>
+
+  <hr style="border: 0; border-top: 1px solid #d3bf94;">
+
+  <!-- BIOGRAPHY SECTION -->
+  <section id="bio" class="container">
+    <h2>About Me</h2>
+    <div class="bio-card">
+      <div class="bio-text">
+        <p>I'm Jeffers, a Year 2 student currently studying Information Systems at Singapore Management University (SMU).</p>
+        <br>
+        <p>I take deep pride in my work, combining a meticulous eye for detail with a drive for impactful results. Building on my strong foundation of Big Data & Analytics from Polytechnic, my passion lies at the intersection of data analytics and programming.</p>
+        <br>
+        <p>Outside of University, you can usually find me fiending for bubble tea, unwinding with whatever game I'm currently hooked on, or probably spending way too much time doomscrolling away...</p>
+      </div>
+      <div class="bio-stats">
+        <strong>Based in</strong>
+        <span>Singapore 🇸🇬</span>
+        
+        <strong>Countries visited</strong>
+        <span>7, and counting</span>
+        
+        <strong>Currently</strong>
+        <span>Year 2 Information Systems Student (SMU)</span>
+        
+        <strong>Interests</strong>
+        <span>Travelling, Hanging out with Friends, Games, <s>Doomscrolling</s></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- JAPAN / VIDEO SECTION -->
+  <section id="favourite" class="container">
+    <h2>Favorite Destination: Japan / 日本</h2>
+    <p style="margin-bottom: 20px;">The one place I always find myself missing. Between the stunning landscapes, rich culture, and unmatched food, Japan remains a destination I will never tire of exploring.</p>
+    <p class="eyebrow">The Pause Between the Trains — a short film</p>
+    <div class="video-wrapper">
+      <iframe
+          src="https://www.youtube.com/embed/n9jbbkZKAAE?autoplay=1&mute=1&loop=1&playlist=n9jbbkZKAAE&controls=1&rel=0&modestbranding=1&playsinline=1"
+          title="Japan — cinematic travel film"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    <div class="jp-grid">
+      <img src="media/jp1.jpg" alt="Japan scene 1">
+      <img src="media/jp2.jpg" alt="Japan scene 2">
+      <img src="media/jp3.jpg" alt="Japan scene 3">
+      <img src="media/jp4.jpg" alt="Japan scene 4">
+      <img src="media/jp5.jpg" alt="Japan scene 5">
+      <img src="media/jp6.jpg" alt="Japan scene 6">
+    </div>
+  </section>
+
+  <!-- DESTINATIONS SECTION -->
+  <section id="destinations" class="container">
+    <h2>Other Destinations</h2>
+    <p style="margin-bottom: 30px;">A visual collection of moments and memories from my journey.</p>
+    
+    <div class="grid">
+      <div class="card">
+        <img src="media/kr1.jpg" alt="South Korea">
+        <h3>South Korea</h3>
+        <p>Seoul</p>
+      </div>
+      <div class="card">
+        <img src="media/tw1.jpg" alt="Taiwan">
+        <h3>Taiwan</h3>
+        <p>Taipei</p>
+      </div>
+      <div class="card">
+        <img src="media/vn1.jpg" alt="Vietnam">
+        <h3>Vietnam</h3>
+        <p>Da Nang</p>
+      </div>
+      <div class="card">
+        <img src="media/my1.jpg" alt="Malaysia">
+        <h3>Malaysia</h3>
+        <p>Kuala Lumpur</p>
+      </div>
+      <div class="card">
+        <img src="media/batam1.jpg" alt="Indonesia">
+        <h3>Indonesia</h3>
+        <p>Batam</p>
+      </div>
+      <div class="card">
+        <img src="media/aus1.jpg" alt="Australia">
+        <h3>Australia</h3>
+        <p>Perth</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAD2 SECTION -->
+  <section id="wad2" class="container wad2-list">
+    <h2>WAD2 Assignments</h2>
+    
+    <p style="margin: 20px 0px 10px 0px;">Week 1</p>
+    <ul>
+      <li><a href="/fanpage.html" target="_blank" rel="noopener noreferrer">Fan Page →</a></li>
+    </ul>
+
+    <p style="margin: 20px 0px 10px 0px;">Week 2</p>
+    <ul>
+      <li><a href="/Challenge1/home.html" target="_blank" rel="noopener noreferrer">Challenge 1 →</a></li>
+      <li><a href="/Challenge2/home.html" target="_blank" rel="noopener noreferrer">Challenge 2 →</a></li>
+      <li><a href="/Challenge3/home.html" target="_blank" rel="noopener noreferrer">Challenge 3 →</a></li>
+    </ul>
+  </section>
+  <button id="backToTop" title="Go to top">↑</button>
+</main>
+
+<footer>
+  <h3>Find me Elsewhere</h3>
+  <div>
+    <a href="https://www.linkedin.com/in/jeffers-ng/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://github.com/Jeffers321" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </div>
+  <p style="font-family: 'Space Mono', monospace; font-size: 12px; color: #8c7a63;">© 2026 JEFFERS — TRAVEL JOURNAL</p>
+</footer>
+
+<script>
+  const toggleBtn = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  toggleBtn.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+  });
+
+  const backToTopBtn = document.getElementById("backToTop");
+
+  window.addEventListener('scroll', function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      backToTopBtn.classList.add("active");
+    } else {
+      backToTopBtn.classList.remove("active");
+    }
+  });
+
+  backToTopBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0 });
+  });
+</script>
+
+</body>
+</html>

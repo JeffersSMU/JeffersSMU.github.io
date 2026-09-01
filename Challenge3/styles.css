@@ -2,24 +2,44 @@
 
 
 /* 0) Base page (font, background, text color, remove default margins) */
-
+body {
+   font-family: Arial, Helvetica, sans-serif;
+   background-color: aliceblue;
+   color: black;
+   margin: 0;
+}
 
 /* 1) Container (center, max-width, padding) */
-
+.container {
+   max-width: 920px;
+   margin: 0 auto;
+   padding: 20px;
+}
 
 /* 2) Map section heading (spacing, readability) */
-
+.map-section h2 {
+   margin: 10px 0px;
+}
 
 /* 3) Map wrapper
    - Make this the positioning context for absolute children (hint: relative).
    - Ensure it doesn't overflow horizontally.
 */
-
+.map-wrapper {
+   position: relative;
+   overflow-x: hidden;
+   border: 1px solid lightgray;
+   border-radius: 20px;
+   box-shadow: 0px 0px 5px lightgray;
+}
 
 /* 4) Map image
    - Keep it responsive inside the container (full width of wrapper, auto height).
 */
-
+.map-wrapper img {
+   width: 100%;
+   height: auto;
+}
 
 /* 5) Markers
    - Style as small circular buttons (size, color, border-radius).
@@ -27,7 +47,36 @@
    - Center each marker over its coordinates (hint: translate).
    - Ensure markers appear ABOVE the map (z-index).
 */
+.map-wrapper button {
+   position: absolute;
+   background-color: #e91e63;
+   color: transparent;
+   width: 15px;
+   height: 15px;
+   border: 2px solid white;
+   border-radius: 100%;
+   z-index: 10;
+}
 
+#marker-atlantis {
+   top: 30%;
+   left: 22%;
+}
+
+#marker-gyro {
+   top: 20%;
+   left: 77%;
+}
+
+#marker-carousel {
+   top: 60%;
+   left: 30%;
+}
+
+#marker-river {
+   top: 65%;
+   left: 70%;
+}
 
 /* 6) Tooltips
    - Hidden by default; visible on hover of the marker.
@@ -35,14 +84,66 @@
    - Add a subtle background, border, and rounded corners.
    - Raise above map and marker with z-index.
 */
-
+.map-wrapper button:hover span {
+   position: absolute;
+   transform: translate(-50%, -150%);
+   color: white;
+   padding: 5px;
+   white-space: nowrap;
+   background-color: black;
+   border: 1px solid black;
+   border-radius: 10px;
+   z-index: 20;
+}
 
 /* 7) Legend box
    - Position absolute INSIDE the map wrapper, bottom-right corner.
    - Add background, padding, small rounded corners.
    - Keep text legible and compact.
 */
+.legend {
+   position: absolute;
+   bottom: 3%;
+   right: 2%;
+   background-color: white;
+   border: 1px solid lightgray;
+   border-radius: 20px;
+   box-shadow: 0px 0px 5px lightgray;
+   z-index: 15;
+}
 
+.legend h3 {
+   padding: 0px 5px;
+   margin: 10px 5px;
+   font-size: medium;
+}
+
+.legend ul {
+   padding: 0px 10px;
+   margin: 0px 0px 5px;
+}
+
+.legend ul li {
+   list-style-type: none;
+   padding-bottom: 5px;
+   font-size: small;
+}
+
+.dot {
+   display: inline-block;
+   width: 10px;
+   height: 10px;
+   border: 2px solid white;
+   border-radius: 100%;
+}
+
+.ride {
+   background-color: #e91e63;
+}
+
+.landmark {
+   background-color: skyblue;
+}
 
 /* 8) Fixed Back to Top button
    - Position fixed at bottom-right of viewport.
@@ -50,9 +151,46 @@
    - Style as a small pill button.
    - Keep above everything with z-index.
 */
+.back-to-top {
+   position: fixed;
+   bottom: 2%;
+   right: 2%;
+   background-color: rgb(60, 60, 255);
+   color: white;
+   padding: 10px 20px;
+   border-radius: 40px;
+   font-weight: bold;
+   text-decoration: none;
+   z-index: 30;
+}
 
+.back-to-top:hover {
+   background-color: rgb(0, 0, 255);
+   transform: translateY(-2px);
+}
 
 /* 9) Footer (muted, centered) */
-
+footer {
+   width: 100%;
+   justify-items: center;
+   bottom: 0;
+   color: gray;
+   padding-top: 10px;
+   border-top: 1px solid lightgray;
+   }
 
 /* 10) Getting Here & Around section styling  */
+.transport-columns {
+   display: grid;
+   grid-template-columns: auto auto;
+   gap: 30px;
+   margin-bottom: 20px;
+}
+
+.transport-columns div {
+   background-color: white;
+   border: 1px solid lightgray;
+   border-radius: 10px;
+   padding: 20px;
+   box-shadow: 0px 0px 3px lightgray;
+}
