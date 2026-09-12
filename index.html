@@ -200,6 +200,24 @@
         border-top: 1px solid #d3bf94;
       }
     }
+
+    .reveal {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+    }
+
+    .typewriter {
+      animation: typewriter-animation 1s step-end infinite;
+    }
+
+    @keyframes typewriter-animation {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -233,9 +251,11 @@
             <p class="text-center mt-2 mb-0 fs-6">📍 KIYOMIZU-DERA, KYOTO</p>
           </div>
         </div>
-        <div class="col-md-8 hero-text">
+        <div class="col-md-8 hero-text reveal-item">
           <p class="eyebrow">Who am I?</p>
-          <h1 class="display-4 fw-medium lh-sm">Jeffers —<br><em>Out of Class,</em><br>Wandering around.</h1>
+          <h1 class="display-4 fw-medium lh-sm position-relative">
+        <span id="heroFallback">Jeffers —<br><em>Out of Class,</em><br>Wandering around.</span><span id="heroTitle" class="position-absolute top-0 start-0"></span>
+      </h1>
           <p class="muted fs-5">The best stories usually come from unplanned detours and getting a little lost. This is an archive of my time spent off-campus chasing new horizons, and figuring things out as I go.</p>
         </div>
       </div>
@@ -244,7 +264,7 @@
     <!-- BIOGRAPHY SECTION -->
     <section id="bio" class="container py-5">
       <h2>About Me</h2>
-      <div class="bio-card p-4 mt-4 shadow">
+      <div class="bio-card p-4 mt-4 shadow reveal-item">
         <div class="card-body">
           <div class="row gx-5 align-items-center">
             <div class="col-md-8">
@@ -275,7 +295,7 @@
       <h2>Favorite Destination: Japan / 日本</h2>
       <p class="mb-2">The one place I always find myself missing. Between the stunning landscapes, rich culture, and unmatched food, Japan remains a destination I will never tire of exploring.</p>
       <p class="eyebrow mb-1">The Pause Between the Trains — a short film</p>
-      <div class="video-wrapper p-2">
+      <div class="video-wrapper p-2 reveal-item">
         <div class="ratio ratio-16x9">
           <iframe
               src="https://www.youtube.com/embed/n9jbbkZKAAE?autoplay=1&mute=1&loop=1&playlist=n9jbbkZKAAE&controls=1&rel=0&modestbranding=1&playsinline=1"
@@ -285,7 +305,7 @@
               loading="lazy"></iframe>
         </div>
       </div>
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4 mt-1">
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4 mt-1 reveal-item">
         <div class="col"><img src="media/jp1.jpg" alt="Japan scene 1" class="jp-thumb object-fit-cover rounded-4" data-bs-toggle="modal" data-bs-target="#jpModal" data-index="0"></div>
         <div class="col"><img src="media/jp2.jpg" alt="Japan scene 2" class="jp-thumb object-fit-cover rounded-4" data-bs-toggle="modal" data-bs-target="#jpModal" data-index="1"></div>
         <div class="col"><img src="media/jp3.jpg" alt="Japan scene 3" class="jp-thumb object-fit-cover rounded-4" data-bs-toggle="modal" data-bs-target="#jpModal" data-index="2"></div>
@@ -302,7 +322,7 @@
 
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/kr1.jpg" alt="South Korea" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">South Korea</h3>
@@ -311,7 +331,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/tw1.jpg" alt="Taiwan" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">Taiwan</h3>
@@ -320,7 +340,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/vn1.jpg" alt="Vietnam" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">Vietnam</h3>
@@ -329,7 +349,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/my1.jpg" alt="Malaysia" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">Malaysia</h3>
@@ -338,7 +358,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/batam1.jpg" alt="Indonesia" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">Indonesia</h3>
@@ -347,7 +367,7 @@
           </div>
         </div>
         <div class="col">
-          <div class="card h-100 text-center p-2">
+          <div class="card h-100 text-center p-2 reveal-item">
             <img src="media/aus1.jpg" alt="Australia" class="w-100 object-fit-cover rounded-5">
             <div class="card-body">
               <h3 class="fs-5">Australia</h3>
@@ -359,7 +379,7 @@
     </section>
 
     <!-- WAD2 SECTION -->
-    <section id="wad2" class="container wad2-list py-5">
+    <section id="wad2" class="container wad2-list py-5 reveal-item">
       <h2>WAD2 Assignments</h2>
 
       <p class="mt-4 mb-2 fw-semibold">Week 1</p>
@@ -458,6 +478,51 @@
     });
 
     const backToTopBtn = document.getElementById("backToTop");
+
+    const revealItems = document.getElementsByClassName('reveal-item');
+
+    for (const item of revealItems) {
+      item.classList.add('reveal');
+    }
+
+    function revealOnScroll() {
+      for (const item of revealItems) {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 40) {
+          item.classList.add('visible');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    const heroFallback = document.getElementById('heroFallback');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroText = heroFallback.innerHTML;
+    let buffer = '';
+    let pos = 0;
+
+    function typeHeroTitle() {
+      const next = heroText.charAt(pos);
+      if (next === '<') {
+        const end = heroText.indexOf('>', pos);
+        buffer += heroText.slice(pos, end + 1);
+        pos = end + 1;
+      } else {
+        buffer += next;
+        pos++;
+      }
+      heroTitle.innerHTML = buffer;
+      if (pos < heroText.length) {
+        setTimeout(typeHeroTitle, next === '<' ? 10 : 50);
+      } else {
+        heroTitle.insertAdjacentHTML('beforeend', '<span class="typewriter">|</span>');
+      }
+    }
+
+    heroFallback.classList.add('invisible');
+    setTimeout(typeHeroTitle, 500);
 
     window.addEventListener('scroll', function() {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
