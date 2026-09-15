@@ -1,0 +1,7 @@
+# Dependency folders anywhere in the project
+**/node_modules/
+.pnpm-workspace-state-v1.json
+
+# Operating System specific files anywhere in the project
+**/.DS_Store
+**/Thumbs.db
