@@ -8,7 +8,7 @@
       id: 1,
       name: 'Rumi',
       role: 'Leader, Vocal',
-      img: '/photos/rumi.jpg',
+      img: import.meta.env.BASE_URL + 'photos/rumi.jpg',
       profile: [
         'Zodiac Sign: Aries',
         'Chinese Zodiac Sign: Goat',
@@ -22,7 +22,7 @@
       id: 2,
       name: 'Mira',
       role: 'Rapper',
-      img: '/photos/mira.jpg',
+      img: import.meta.env.BASE_URL + 'photos/mira.jpg',
       profile: [
         'Zodiac Sign: Taurus',
         'Chinese Zodiac Sign: Monkey',
@@ -36,7 +36,7 @@
       id: 3,
       name: 'Zoey',
       role: 'Dancer',
-      img: '/photos/zoey.jpg',
+      img: import.meta.env.BASE_URL + 'photos/zoey.jpg',
       profile: [
         'Zodiac Sign: Sagittarius',
         'Chinese Zodiac Sign: Rooster',

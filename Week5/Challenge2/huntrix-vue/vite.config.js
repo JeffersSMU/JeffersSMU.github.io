@@ -6,6 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/Week5/Challenge2/huntrix-vue/dist/',
   plugins: [
     vue(),
     vueDevTools(),
